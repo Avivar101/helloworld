@@ -38,6 +38,8 @@
                     </tr>
                 </tbody>
             </table>
+            <p>Order total</p>
+            <button>pizza order</button>
         </div>
     </div>
 </template>
