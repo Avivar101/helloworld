@@ -2,21 +2,23 @@
   <div id="app">
     <app-header />
     <home />  
-    <Menu />
+    <Admin />
   </div>
 </template>
 
 <script>
 import HeadNav from './components/HeadNav'
 import home from './components/home'
-import Menu from './components/menu'
+//import Menu from './components/menu'
+import Admin from './components/Admin'
 
 export default {
   name: 'App',
   components: {
     appHeader: HeadNav,
     home,
-    Menu
+    //Menu,
+    Admin
   }
 }
 </script>
