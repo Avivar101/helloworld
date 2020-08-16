@@ -1,6 +1,7 @@
 <template>
     <div class="admin_wrapper">
         <div class="current_user_wrapper"></div>
+        <NewPizza />
         <div class="menu_wrapper">
             <h3>Menu</h3>
             <table>
@@ -38,6 +39,12 @@
                             <button type="button" class="btn_red">&times;</button>
                         </th>
                     </tr>
+                    <tr>
+                        <td>Magarita</td>
+                        <td>9"</td>
+                        <td>2</td>
+                        <td>$13</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -45,7 +52,41 @@
 </template>
 
 <script>
+import NewPizza from '../components/NewPizza'
+
 export default {
-    name: "admin"
-}
+    name: "admin",
+    components: {
+        NewPizza
+    }
+};
 </script>
+
+<style scoped>
+.admin_wrapper {
+  margin: 10px;
+}
+
+.current_user_wrapper,
+.orders_wrapper,
+.menu_wrapper {
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px #f79e38;
+  background: rgb(254, 254, 252);
+}
+
+table {
+  text-align: left;
+  width: 70vw;
+}
+
+.order_number th {
+  background: #ddd;
+}
+
+.order_number button {
+  margin: 0 10px;
+}
+
+</style>
