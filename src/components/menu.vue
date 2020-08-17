@@ -40,7 +40,7 @@
                     </tbody>
                 </table>
                 <p>Order total</p>
-                <button class="btn_green">Place order</button>
+                <button class="btn_green" @click="add">Place order</button>
             </div>
             <div v-else><p>{{basketText}}</p></div>
         </div>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { menuOrder } from '../firebase'
 export default {
     name: 'Menu',
     data() {
@@ -128,6 +129,10 @@ export default {
                 this.removeFromBasket(item);
             }
         },
+
+        add() {
+             menuOrder.add(this.basket);
+        }
     }
 }
 </script>
