@@ -131,7 +131,11 @@ export default {
         },
 
         add() {
-             menuOrder.add(this.basket);
+            console.log(this.basket)
+            for(let i = 0; i < this.basket.length; i++){
+                menuOrder.add(this.basket[i]);
+            }
+             
         }
     }
 }
