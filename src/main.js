@@ -33,6 +33,10 @@ const router = new VueRouter ({
   mode: 'history'
 })
 
+router.beforeEach((to) => {
+  console.log(to)
+})
+
 new Vue({
   router,
   render: h => h(App),
