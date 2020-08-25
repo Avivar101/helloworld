@@ -1,18 +1,18 @@
 <template>
-  <div id="app">
+<div id="app">
     <app-header />
     <router-view></router-view>
-  </div>
+</div>
 </template>
 
 <script>
 import HeadNav from './components/HeadNav'
 
 export default {
-  name: 'App',
-  components: {
-    appHeader: HeadNav,
-  }
+    name: 'App',
+    components: {
+        appHeader: HeadNav,
+    }
 }
 </script>
 
