@@ -1,6 +1,10 @@
 <template>
 <div class="admin_wrapper">
-    <div class="current_user_wrapper"></div>
+    <div class="current_user_wrapper">
+        <span>Logged in as:</span>
+        {{currentUser}}
+        <button type="button" class="btn_red" @click.prevent="signOut">Sign out</button>
+    </div>
     <NewPizza />
     <div class="menu_wrapper">
         <h3>Menu</h3>
@@ -22,7 +26,7 @@
         </table>
     </div>
     <div class="order_wrapper">
-        <h3>current orders</h3>
+        <h3>current orders ({{numberOfOrders}}):</h3>
         <table>
             <thead>
                 <tr>
@@ -64,7 +68,13 @@ export default {
     },
     computed: {
         getMenuItems() {
-            return this.$store.state.menuItems
+            return this.$store.getters.getMenuItems;
+        },
+        numberOfOrders() {
+            return this.$store.getters.numberOfOrders;
+        },
+        currentUser() {
+            return this.$store.getters.currentUser;
         }
     },
 };

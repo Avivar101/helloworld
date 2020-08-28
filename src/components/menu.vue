@@ -40,19 +40,17 @@
                 </tbody>
             </table>
             <p>Order total</p>
-            <button class="btn_green" @click="add">Place order</button>
+            <button class="btn_green" @click="addNewOrder">Place order</button>
         </div>
         <div v-else>
-            <p>{{basketText}}</p>
+            <p>{{basketText}} </p>
+            {{ this.$store.state.orders}}
         </div>
     </div>
 </div>
 </template>
 
 <script>
-import {
-    menuOrder
-} from '../firebase'
 export default {
     name: 'Menu',
     data() {
@@ -99,10 +97,10 @@ export default {
             }
         },
 
-        add() {
-            for (let i = 0; i < this.basket.length; i++) {
-                menuOrder.add(this.basket[i]);
-            }
+        addNewOrder() {
+            this.$store.commit('addOrder', this.basket);
+            this.basket = [];
+            this.basketText = 'Thank You, Your order has been placed :)'
 
         }
     }
