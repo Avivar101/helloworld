@@ -56,33 +56,46 @@ export const store = new Vuex.Store({
     mutations: {
         addOrder: (state, orders)=> state.orders.push(orders),
         userStatus: (state, user) => {
-            if(user) {
-                state.currentUser = user
-            } else {
-                state.currentUser = null
-            }
+           // if(user) {
+           //     state.currentUser = user
+           // } else {
+           //     state.currentUser = null
+           // }
+           user === null
+           ? state.currentUser = null
+           : state.currentUser = user.email
         }
     },
     actions: {
         signIn: async ({ commit }, user) => {
             
            try {    
-            const userData = await firebaseAuth.signInWithEmailAndPassword(
-                user.email,
-                user.password
-            );
-            commit('userStatus', userData.user)
-        }
-        catch(error) {
-            const errorCode = error.code
-            const errorMessage = error.message
-            if(errorCode === 'auth/wrong-password') {
-                alert('wrong password')
-            } else {
-                alert(errorMessage)
+                const userData = await firebaseAuth.signInWithEmailAndPassword(
+                    user.email,
+                    user.password
+                );
+                commit('userStatus', userData.user)
             }
+            catch(error) {
+                const errorCode = error.code
+                const errorMessage = error.message
+                if(errorCode === 'auth/wrong-password') {
+                    alert('wrong password')
+                } else {
+                    alert(errorMessage)
+                }
+            }
+        },
+        
+        signOut: async ({ commit }) => {
+            try {
+                await firebaseAuth.signOut();
+            } catch( error ) {
+                alert(`error signing out, ${error}`);
+            }
+            commit('userStatus', null)
         }
-        }
-    }
 
+    }
+    
 })

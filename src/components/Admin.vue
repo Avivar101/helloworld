@@ -59,6 +59,9 @@
 <script>
 import NewPizza from '../components/NewPizza'
 import Login from '../components/Login';
+import {
+    store
+} from '../store/store';
 
 export default {
     name: "admin",
@@ -77,6 +80,11 @@ export default {
             return this.$store.getters.currentUser;
         }
     },
+    methods: {
+        async signOut() {
+            store.dispatch('signOut')
+        }
+    }
 };
 </script>
 
