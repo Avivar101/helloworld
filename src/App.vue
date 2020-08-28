@@ -12,11 +12,17 @@
 
 <script>
 import HeadNav from './components/HeadNav'
+import {
+    dbMenuRef
+} from './firebase'
 
 export default {
     name: 'App',
     components: {
         appHeader: HeadNav,
+    },
+    created() {
+        this.$store.dispatch('setMenuRef', dbMenuRef)
     }
 }
 </script>
