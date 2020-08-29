@@ -13,7 +13,8 @@
 <script>
 import HeadNav from './components/HeadNav'
 import {
-    dbMenuRef
+    dbMenuRef,
+    menuOrder
 } from './firebase'
 
 export default {
@@ -23,6 +24,7 @@ export default {
     },
     created() {
         this.$store.dispatch('setMenuRef', dbMenuRef)
+        this.$store.dispatch('setOrderRef', menuOrder)
     }
 }
 </script>
