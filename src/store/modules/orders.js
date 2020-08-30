@@ -25,6 +25,15 @@ const actions = {
         catch(error) {
             alert('unable to place order, pls try again')
         }
+    },
+    removeOrder: async(context, id) => {
+        try {
+            const order = menuOrder.doc(id)
+            order.delete()
+        }
+        catch(error) {
+            alert(`sorry there was a problem removing order, ${error}`)
+        }
     }
 }
 

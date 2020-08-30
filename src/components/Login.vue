@@ -1,5 +1,6 @@
 <template>
 <div class="login_wrapper">
+    <p>Please Log In to continue</p>
     <form>
         <div>
             <label for="email">Email Address</label>
