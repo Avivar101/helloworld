@@ -1,10 +1,11 @@
 import Home from './components/home'
-const Menu = () => import('./components/menu')
-const Contact = () => import(/* webpackChunkName: "menuGroup" */ './components/Contact')
-const About = () => import(/* webpackChunkName: "menuGroup" */ './components/About')
-//import Menu from './components/menu'
-//import Contact from './components/Contact'
-//import About from './components/About'
+//added lazy loading
+//const Menu = () => import('./components/menu')
+//const Contact = () => import(/* webpackChunkName: "menuGroup" */ './components/Contact')
+//const About = () => import(/* webpackChunkName: "menuGroup" */ './components/About')
+import Menu from './components/menu'
+import Contact from './components/Contact'
+import About from './components/About'
 import Admin from './components/Admin'
 import History from './components/History'
 import Delivery from './components/Delivery'

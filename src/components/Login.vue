@@ -10,7 +10,7 @@
             <label for="password">Password</label>
             <input type="password" v-model="password" id="password" placeholder="password">
         </div>
-        <button type="button" class="btn_green" @click.prevent="signIn">Sign up</button>
+        <button type="button" class="btn_green" @click.prevent="signIn">Sign In</button>
     </form>
 </div>
 </template>
